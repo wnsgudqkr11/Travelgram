@@ -1,0 +1,138 @@
+/* 기본 배경 어둡게 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 모달 */
+.upload-modal {
+  background-color: #262626;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative; /* ← 이 줄 추가 */
+}
+
+
+/* 아이콘 */
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* 설명 텍스트 */
+.upload-text {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* 파란 버튼 */
+.upload-button {
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.upload-button:hover {
+  background-color: #007dd1;
+}
+
+.btn-box{
+	display: flex;
+	width: 20px;
+	height: 20px;
+}
+
+.close-button {
+  position: absolute;
+  padding: 0;
+  /* width: 10px;
+  height: 10px; */
+  top: 15px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  text-decoration: none;
+}
+
+
+  #preview {
+    flex-direction: column;
+	justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .preview-container {
+    display: flex;
+    gap: 20px;
+    width: 70vw;
+	height: 75vh;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+.nav-button {
+	position: absolute;
+	justify-content: space-between;
+	top: 12px;
+	font-size: 24px;
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 8px;
+}
+
+  #previewImage {
+    width: 50vw;
+    object-fit: cover;
+  }
+
+  .preview-info {
+    flex-grow: 1;
+  }
+
+  .options {
+    margin-top: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin-top: 10px;
+  }
+

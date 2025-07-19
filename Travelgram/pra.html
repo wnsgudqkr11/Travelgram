@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사진 업로드 및 미리보기</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #upload, #preview {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 90vh;
+      background-color: #121212;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #upload label {
+      background-color: #1e90ff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #upload input {
+      display: none;
+    }
+
+    #previewImage {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 12px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    #closeBtn {
+      right: 12px;
+    }
+
+    #backBtn {
+      left: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 사진 선택 화면 -->
+  <div id="upload">
+    <label for="fileInput">컴퓨터에서 선택</label>
+    <input type="file" id="fileInput" accept="image/*" />
+  </div>
+
+  <!-- 사진 미리보기 화면 -->
+  <div id="preview" style="display: none;">
+    <!-- ← 뒤로가기 버튼 -->
+    <button id="backBtn" class="nav-button">←</button>
+
+    <!-- ✕ 닫기 버튼 -->
+    <button id="closeBtn" class="nav-button">✕</button>
+
+    <!-- 선택된 이미지 -->
+    <img id="previewImage" />
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const previewImage = document.getElementById('previewImage');
+    const uploadSection = document.getElementById('upload');
+    const previewSection = document.getElementById('preview');
+    const closeBtn = document.getElementById('closeBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    // 사진 선택 시
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewImage.src = e.target.result;
+          uploadSection.style.display = 'none';
+          previewSection.style.display = 'flex';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // 닫기(X) 버튼 누르면 임시 페이지로 이동
+    closeBtn.addEventListener('click', function () {
+      window.location.href = 'temp.html'; // 필요 시 경로 수정
+    });
+
+    // 뒤로가기(←) 버튼 누르면 업로드 화면 복귀
+    backBtn.addEventListener('click', function () {
+      previewSection.style.display = 'none';
+      uploadSection.style.display = 'flex';
+      fileInput.value = '';
+      previewImage.src = '';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Travelgram 업로드</title>
+	<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+
+	<section id="upload">
+		<div class="overlay">
+			<a href="temp.html" class="close-button">×</a>
+			<div class="upload-modal">
+				<div class="upload-icon">📷🎞️</div>
+				<div class="upload-text">사진과 동영상을 여기에 끌어다 놓으세요</div>
+				<label for="file-upload" class="upload-button">컴퓨터에서 선택</label>
+				<input type="file" id="file-upload" style="display: none" />
+			</div>
+		</div>
+	</section>
+
+	<section id="preview" style="display: none;">
+		<a href="temp.html" class="close-button">×</a>
+		<div class="preview-container">
+			<div class="btn-box">
+				<button id="backBtn" class="nav-button">←</button>
+				<button id="shareBtn" class="nav-button">공유하기</button>
+			</div>
+			<img id="previewImage" src="" alt="미리보기 이미지">
+			<div class="preview-info">
+				<div class="user-info">
+					<strong>jun.hx</strong>
+				</div>
+				<textarea placeholder="문구를 입력하세요..." maxlength="2200"></textarea>
+				<div class="options">
+					<p>공유</p>
+					<div>
+						<span>jun.hx</span>
+						<input type="checkbox">
+					</div>
+					<div>
+						<span>박준형</span>
+						<input type="checkbox">
+					</div>
+					<p>접근성</p>
+					<p>고급 설정</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="./script.js"></script>
+</body>
+</html>
